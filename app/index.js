@@ -28,10 +28,10 @@ import Event from './containers/Event';
 import Graph from './containers/Graph';
 
 const TabIcon = ({ selected, title }) => {
-    return (
-      <Text style={{color: selected ? 'red' : 'black'}}>{title}</Text>
-    )
-}
+  return (
+    <Text style={{color: selected ? 'red' : 'black'}}>{title}</Text>
+  );
+};
 
 const scenes = Actions.create(
   <Scene key="root">
@@ -43,7 +43,8 @@ const scenes = Actions.create(
       tabBarStyle={{backgroundColor: '#ffffff'}}>
       <Scene key="home" component={Home} title="Home" icon={TabIcon} hideNavBar/>
       <Scene key="event" component={Event} title="Event" icon={TabIcon} hideNavBar/>
-      <Scene key="user" component={User} title="User" icon={TabIcon} hideNavBar/>              
+      <Scene key="user" component={User} title="User" icon={TabIcon} hideNavBar/>
+      <Scene key="graph" component={Graph} title="Graph" icon={TabIcon} hideNavBar/>             
     </Scene>
   </Scene>
 );
@@ -76,7 +77,7 @@ export default class App extends Component {
       <Provider store={store}>
         <RouterWithRedux scenes={scenes}/>
       </Provider>
-    )
+    );
   }
 }
 
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     opacity: 0.5,
   }
-})
+});
 
 // function mapDispatchToProps(dispatch){
 //   return bindActionCreators(ActionCreators, dispatch);
