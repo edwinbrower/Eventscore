@@ -16,6 +16,7 @@ import AppContainer from './containers/AppContainer';
 import Home from './containers/Home';
 import Landing from './containers/Landing';
 import Search from './containers/Search';
+import Graph from './containers/Graph';
 
 const TabIcon = ({ selected, title }) => {
     return (
@@ -36,6 +37,7 @@ export default class App extends Component {
               tabBarStyle={{backgroundColor: '#FFFFFF'}}>
               <Scene key="home" component={Home} title="Home" icon={TabIcon} initial />
               <Scene key="search" component={Search} title="Search" icon={TabIcon} /> 
+              <Scene key="graph" component={Graph} title="Graph" icon={TabIcon} /> 
             </Scene>
           </Scene>
         </RouterWithRedux>
