@@ -25,6 +25,7 @@ import Home from './containers/Home';
 import Login from './containers/Login';
 import User from './containers/User';
 import Event from './containers/Event';
+import Graph from './containers/Graph';
 
 const TabIcon = ({ selected, title }) => {
     return (
