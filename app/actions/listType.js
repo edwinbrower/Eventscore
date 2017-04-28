@@ -15,7 +15,7 @@ export function setListType(bool) {
       /* listType IS NOT available */
       dispatch({
         type: types.SET_LIST_TYPE_FAILED,
-        listType: false
+        listType: true
       });
     }
   };

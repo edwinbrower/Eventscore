@@ -1,5 +1,5 @@
 const initialState = {
-  listType: false
+  listType: true
 };
 
 export default function listTypeReducer(state = initialState, action) {  

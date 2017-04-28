@@ -67,7 +67,6 @@ class EventList extends Component {
       friction={6}
       perspective={1000}
     >
-      <EventListMap />
       <View style={styles.eventContainer}>
         <ScrollView
         refreshControl={
@@ -87,6 +86,7 @@ class EventList extends Component {
         />
         </ScrollView>
       </View>
+      <EventListMap />
     </FlipCard>;
 
     let listPageRender = null;
