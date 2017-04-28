@@ -59,32 +59,35 @@ class EventList extends Component {
 
   render() {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    let list = null;
-    // if (this.state.listSwitch) {
-    if (this.props.listTypeReducers.listType) {
-      list = <EventListMap />;
-    } else {
-      list = 
-        <View style={styles.eventContainer}>
-          <ScrollView
-          refreshControl={
-            <RefreshControl
-              refreshing={this.state.isRefreshing}
-              onRefresh={() => this.searchPressed()}
-              tintColor="#ff0000"
-              title="Loading..."
-              titleColor="#00ff00"
-              colors={['#ff0000', '#00ff00', '#0000ff']}
-              progressBackgroundColor="#ffff00"
-            />
-          }>
-          <ListView
-            dataSource={ds.cloneWithRows(this.props.eventsReducers.events ? this.props.eventsReducers.events : [])}
-            renderRow={(event) => <EventListItem key={event._id} event={event} />}
+    let list = <FlipCard
+      flip={!this.props.listTypeReducers.listType}
+      clickable={false}
+      flipHorizontal={true}
+      flipVertical={false}
+      friction={6}
+      perspective={1000}
+    >
+      <EventListMap />
+      <View style={styles.eventContainer}>
+        <ScrollView
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.isRefreshing}
+            onRefresh={() => this.searchPressed()}
+            tintColor="#ff0000"
+            title="Loading..."
+            titleColor="#00ff00"
+            colors={['#ff0000', '#00ff00', '#0000ff']}
+            progressBackgroundColor="#ffff00"
           />
-          </ScrollView>
-        </View>;
-    }
+        }>
+        <ListView
+          dataSource={ds.cloneWithRows(this.props.eventsReducers.events ? this.props.eventsReducers.events : [])}
+          renderRow={(event) => <EventListItem key={event._id} event={event} />}
+        />
+        </ScrollView>
+      </View>
+    </FlipCard>;
 
     let listPageRender = null;
     if (this.props.eventsReducers.loadingEvents) {
